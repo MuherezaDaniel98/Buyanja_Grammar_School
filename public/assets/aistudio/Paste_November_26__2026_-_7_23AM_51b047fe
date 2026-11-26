@@ -1,0 +1,984 @@
+# MASTER DEVELOPMENT PROMPT
+## BUYANJA GRAMMAR SCHOOL – SECURE ROLE-BASED STUDENT MARKS MANAGEMENT AND AUTOMATED REPORT GENERATION SYSTEM
+
+### 1. PROJECT OVERVIEW
+
+Act as a senior full-stack software engineer, UI/UX designer, database architect, cybersecurity specialist and education technology consultant.
+
+Your task is to design and develop a complete, production-quality, modern web application titled:
+
+**BUYANJA GRAMMAR SCHOOL – STUDENT MARKS MANAGEMENT AND AUTOMATED REPORT GENERATION SYSTEM**
+
+The system is intended for Buyanja Grammar School, Uganda.
+
+The main objective is to digitise and streamline the school's academic records management processes by replacing fragmented Excel spreadsheets, manual marks calculations, paper-based report generation and unsecured academic records with a centralised, secure and intelligent web-based platform.
+
+The application must provide a seamless experience for administrators, the Head Teacher, Director of Studies (DOS), class teachers and subject teachers.
+
+This must be a fully functional application with a properly designed frontend, working backend, relational database, secure authentication, role-based access control, automated calculations, academic analytics and professional PDF report generation.
+
+Do not create a simple demonstration dashboard with non-functional buttons. Every major feature must have a meaningful working implementation.
+
+### 2. TECHNOLOGY STACK
+
+Use the following technologies:
+
+**Frontend**
+- React.js with Vite.
+- Tailwind CSS for styling.
+- React Router for navigation.
+- Recharts for interactive charts and analytics.
+- Lucide React for consistent icons.
+- React Hook Form for form management.
+- Zod for frontend validation.
+- Axios for API communication.
+- A reusable component-based architecture.
+
+**Backend**
+- Node.js.
+- Express.js.
+- RESTful API architecture.
+- JWT-based authentication with secure refresh-token handling, preferably using HttpOnly, Secure and SameSite cookies.
+- Role-Based Access Control (RBAC).
+- bcrypt or Argon2 for password hashing.
+- Zod or Joi for server-side validation.
+
+**Database**
+- MySQL.
+- Proper relational database design.
+- Foreign key constraints.
+- Database transactions.
+- Indexed fields for frequently queried records.
+- Proper handling of academic years, terms and historical records.
+
+**Additional technologies**
+- PDFKit or another suitable PDF generation library for professional report cards.
+- ExcelJS for Excel import and export.
+- Multer for controlled file uploads.
+- Helmet for HTTP security headers.
+- Express rate limiting.
+- Pino or Winston for application logging.
+- Nodemailer for email notifications where configured.
+- A service worker and PWA support as an optional enhancement.
+
+Use maintainable, well-organised code with meaningful filenames, reusable components and clear comments.
+
+### 3. BRAND IDENTITY AND VISUAL DESIGN
+
+Create a distinctive, premium and professional visual identity for Buyanja Grammar School.
+
+The design must not look like a generic school management template or a copied dashboard from existing school management systems.
+
+Develop a unique interface with a sophisticated academic and administrative identity.
+
+**Suggested visual direction:**
+- Primary colour: Deep navy blue.
+- Secondary colour: Royal blue.
+- Accent colour: Muted gold or warm amber.
+- Background: Soft off-white and very light grey.
+- Cards: Clean white surfaces with subtle shadows.
+- Typography: Inter, Manrope or a similar modern font.
+- Borders: Subtle and refined.
+- Icons: Consistent Lucide icons.
+- Charts: Clean, readable and informative.
+
+Use colour consistently throughout the application.
+
+The design should communicate:
+- Academic excellence.
+- Professionalism.
+- Reliability.
+- Security.
+- Innovation.
+- Administrative efficiency.
+
+Avoid:
+- Excessive gradients.
+- Unnecessary animations.
+- Oversized headings.
+- Too many colourful cards.
+- Cluttered tables.
+- Excessive rounded corners.
+- Generic template appearances.
+- Randomly coloured icons.
+
+Use subtle animations, transitions, skeleton loading states, elegant empty states, informative tooltips and clear visual feedback.
+
+The interface must be responsive across desktops, tablets and smartphones.
+
+### 4. APPLICATION LAYOUT AND NAVIGATION
+
+Create a professional administrative layout consisting of:
+
+**Sidebar**
+- School logo and name.
+- Dashboard.
+- Students.
+- Teachers.
+- Classes and Streams.
+- Subjects.
+- Academic Years and Terms.
+- Assessments and Examinations.
+- Marks Management.
+- Results and Grading.
+- Report Cards.
+- Academic Analytics.
+- Notifications.
+- Audit Logs.
+- User Management.
+- System Settings.
+
+The sidebar must:
+- Support collapsing and expanding.
+- Highlight the active navigation item.
+- Display relevant icons.
+- Hide modules that a user is not authorised to access.
+- Have a professional mobile navigation experience.
+
+**Top navigation bar**
+- Page title and breadcrumbs.
+- Global search.
+- Notification centre.
+- Academic year and term context indicator.
+- User profile menu.
+- Profile settings.
+- Logout.
+
+The main content area should have sufficient spacing and a clear visual hierarchy.
+
+### 5. AUTHENTICATION AND ROLE-BASED ACCESS CONTROL
+
+Implement a secure authentication system.
+
+Support these roles:
+
+1. System Administrator.
+2. Head Teacher.
+3. Director of Studies.
+4. Class Teacher.
+5. Subject Teacher.
+
+Optional future roles:
+- Student.
+- Parent/Guardian.
+
+Each role must have separate permissions.
+
+**System Administrator**
+- Manage all user accounts.
+- Create and deactivate accounts.
+- Assign roles and permissions.
+- Configure school information.
+- Manage academic structures.
+- Configure grading policies.
+- Manage system settings.
+- Manage backups.
+- Access audit logs.
+
+**Head Teacher**
+- View school-wide academic dashboards.
+- Review examination performance.
+- Approve final results.
+- View class and subject performance.
+- Generate school-wide academic reports.
+- Monitor academic progress.
+
+**Director of Studies**
+- Manage academic operations.
+- Assign subjects and teachers.
+- Monitor marks submission.
+- Review submitted marks.
+- Reject incorrect submissions.
+- Approve verified results according to school policy.
+- Generate examination summaries.
+- Monitor teacher submission progress.
+
+**Class Teacher**
+- View assigned classes.
+- View students in assigned classes.
+- Monitor class academic performance.
+- Enter student comments.
+- Review individual student academic histories.
+- Generate permitted class reports.
+
+**Subject Teacher**
+- View assigned subjects and classes.
+- Enter assessment marks.
+- Import marks from Excel.
+- Save drafts.
+- Submit marks.
+- View submission feedback.
+- Correct returned submissions.
+
+Enforce permissions on the backend, not just by hiding frontend navigation links.
+
+### 6. DASHBOARD MODULE
+
+Create personalised dashboards based on the logged-in user's role.
+
+The administrator dashboard should display:
+
+- Total students.
+- Male and female student counts.
+- Total teachers.
+- Total classes and streams.
+- Total subjects.
+- Active academic year.
+- Current term.
+- Marks submission percentage.
+- Results approval progress.
+- Overall school average.
+- Students requiring academic attention.
+
+Include professional visualisations:
+- Student enrolment distribution.
+- Gender distribution.
+- Academic performance by class.
+- Performance by subject.
+- Grade distribution.
+- Termly performance trends.
+- Marks submission progress.
+
+Provide useful date, term, class and academic-year filters.
+
+All dashboard figures and charts must come from actual database records.
+
+Do not hardcode statistics.
+
+Use attractive metric cards with subtle icons, contextual labels and meaningful comparisons.
+
+### 7. STUDENT MANAGEMENT MODULE
+
+Create a complete student registration and records management module.
+
+Features:
+- Register individual students.
+- Automatically generate unique admission numbers.
+- Record full names.
+- Record gender.
+- Record date of birth.
+- Record admission date.
+- Upload student photographs where required.
+- Record parent or guardian details.
+- Record contact information.
+- Assign classes and streams.
+- Update student information.
+- Promote students to new classes.
+- Transfer students between streams.
+- Record withdrawals and transfers.
+- View academic histories.
+- Search and filter students.
+- Import students through Excel and CSV.
+- Validate duplicate admission numbers.
+
+Create a professional student profile page with tabs:
+
+1. Personal Information.
+2. Academic Information.
+3. Examination Results.
+4. Performance History.
+5. Attendance (if enabled).
+6. Documents.
+
+Preserve historical records when students are promoted.
+
+### 8. TEACHER AND SUBJECT MANAGEMENT
+
+Implement:
+- Teacher registration.
+- Teacher profile management.
+- Subject registration.
+- Class and stream management.
+- Subject allocation.
+- Teacher-to-subject assignment.
+- Class teacher allocation.
+- Multiple subject assignments.
+- Teacher workload overview.
+- Subject allocation history.
+
+Restrict teachers to their assigned academic responsibilities.
+
+### 9. ACADEMIC YEAR, TERM AND ASSESSMENT MANAGEMENT
+
+Create an academic configuration module.
+
+Allow authorised administrators to:
+- Create academic years.
+- Create Term I, Term II and Term III.
+- Set opening and closing dates.
+- Activate the current academic period.
+- Archive completed academic periods.
+- Configure examination names.
+- Configure assessment categories.
+- Define maximum marks.
+- Define assessment weightings.
+- Set submission deadlines.
+- Configure grading scales.
+- Configure ranking policies.
+
+Support different examination structures when required.
+
+Do not permanently hardcode assessment weightings or grade boundaries.
+
+### 10. MARKS ENTRY MODULE
+
+This is one of the most important modules.
+
+Create a sophisticated, spreadsheet-inspired marks entry interface.
+
+The interface should be optimised for teachers who enter marks for large classes.
+
+Features:
+- Select academic year.
+- Select term.
+- Select examination.
+- Select class and stream.
+- Select assigned subject.
+- Display enrolled students.
+- Enter marks directly into editable table cells.
+- Keyboard-friendly navigation between cells.
+- Automatic validation.
+- Automatic draft saving.
+- Manual save option.
+- Bulk marks entry.
+- Excel and CSV import.
+- Import preview.
+- Duplicate detection.
+- Missing marks identification.
+- Invalid marks warnings.
+- Submission progress.
+- Draft and submitted status indicators.
+- Submission history.
+
+The marks entry table should contain:
+
+- Student number.
+- Admission number.
+- Student name.
+- Assessment score columns.
+- Total marks.
+- Grade where applicable.
+- Status.
+
+Provide clear visual indicators for:
+- Saved.
+- Unsaved.
+- Invalid.
+- Missing.
+- Submitted.
+- Returned for correction.
+- Approved.
+
+Do not permit marks exceeding configured maximum scores.
+
+Prevent unauthorised modifications.
+
+Implement autosave carefully, with server confirmation and conflict detection.
+
+### 11. AUTOMATED GRADING AND CALCULATION ENGINE
+
+Develop a configurable grading engine.
+
+Features:
+- Automatic assessment total calculation.
+- Weighted score calculation.
+- Subject total calculation.
+- Subject average calculation.
+- Overall student average.
+- Grade assignment.
+- Performance descriptions.
+- Aggregate calculation where applicable.
+- Class ranking where enabled.
+- Tie handling.
+- Missing assessment handling.
+- Absent and exempted status handling.
+- Automatic recalculation after authorised changes.
+
+Allow administrators to configure grading boundaries.
+
+Example configuration:
+
+80–100 = A – Excellent
+70–79 = B – Very Good
+60–69 = C – Good
+50–59 = D – Fair
+0–49 = E – Needs Improvement
+
+These are illustrative values only.
+
+Never hardcode them.
+
+The system must allow different grading scales for different examination levels.
+
+Use database transactions and consistent calculation rules.
+
+Ensure all calculations are reproducible and tested.
+
+### 12. RESULTS VERIFICATION AND APPROVAL
+
+Implement a controlled examination approval workflow:
+
+Subject Teacher → DOS → Head Teacher → Published Results.
+
+Features:
+- Teachers submit completed marks.
+- DOS receives submission notifications.
+- DOS reviews submitted marks.
+- DOS returns incorrect marks for correction.
+- DOS verifies subject results.
+- Head Teacher performs final approval where required.
+- Approved results are locked.
+- Published results become available to authorised recipients.
+- Corrections to approved results require explicit authorisation and a recorded reason.
+- Maintain a complete version history.
+
+Display approval progress using a clean workflow tracker.
+
+Never allow an unauthorised user to bypass the approval process.
+
+### 13. PROFESSIONAL REPORT CARD DESIGN AND GENERATION
+
+THIS MODULE REQUIRES PARTICULAR ATTENTION.
+
+The report card must be one of the strongest visual features of the entire application.
+
+Do not generate a plain HTML table exported as a PDF.
+
+Design a sophisticated, print-ready academic report card that looks like a professionally designed official school document.
+
+Use a distinctive Buyanja Grammar School identity.
+
+**Report card visual direction**
+
+Create an elegant academic document using:
+- Deep navy blue.
+- Royal blue.
+- Restrained gold accents.
+- White background.
+- Professional typography.
+- Subtle section dividers.
+- Balanced margins.
+- Consistent alignment.
+- Clean tables.
+- Refined header and footer elements.
+
+Avoid excessive decorations, unnecessary gradients and oversized logos.
+
+**REPORT CARD STRUCTURE**
+
+A. OFFICIAL SCHOOL HEADER
+
+Include:
+- School logo.
+- BUYANJA GRAMMAR SCHOOL.
+- School motto, configurable by administrator.
+- School address and contact details.
+- Official school document heading.
+- Academic year and term.
+- Examination name.
+
+Use a professional header composition with the logo and school identity clearly visible.
+
+B. STUDENT INFORMATION SECTION
+
+Present student details in a visually organised information panel:
+
+- Student name.
+- Admission number.
+- Class.
+- Stream.
+- Gender where required.
+- Academic year.
+- Term.
+- Class teacher.
+
+Include a student photograph only if configured by the school.
+
+C. ACADEMIC PERFORMANCE TABLE
+
+Design a clean, well-spaced results table with:
+
+- Subject code.
+- Subject name.
+- Coursework marks where applicable.
+- Test marks where applicable.
+- Examination marks.
+- Total marks.
+- Grade.
+- Subject teacher's initials or approved identifier where appropriate.
+
+The table must adapt to different assessment configurations.
+
+D. PERFORMANCE SUMMARY
+
+Include:
+- Total marks.
+- Overall average.
+- Overall grade.
+- Aggregate where applicable.
+- Class position where enabled.
+- Number of subjects assessed.
+- Performance description.
+
+Present key performance information using refined summary blocks rather than oversized dashboard-style cards.
+
+E. TEACHER COMMENTS
+
+Include:
+- Subject teacher comments where required.
+- Class teacher's general comment.
+- Academic progress observations.
+
+Allow teachers to select suggested comments and customise them.
+
+F. ATTENDANCE SUMMARY
+
+If attendance functionality is enabled, display:
+- Total school days.
+- Days present.
+- Days absent.
+- Attendance percentage.
+
+G. HEAD TEACHER'S REMARKS
+
+Provide a designated area for the Head Teacher's comments.
+
+H. SIGNATURES AND APPROVAL
+
+Provide spaces for:
+- Class teacher.
+- Director of Studies.
+- Head Teacher.
+- Official school stamp where applicable.
+
+I. NEXT TERM INFORMATION
+
+Include:
+- Next term opening date.
+- Important school announcements.
+- Other configurable information.
+
+J. FOOTER AND VERIFICATION
+
+Include:
+- Report generation date.
+- Unique report reference.
+- QR code for report verification.
+- A brief official-document notice.
+
+QR verification must use a secure verification endpoint that exposes only the minimum information needed to confirm authenticity. Do not expose student marks or private information through a public QR URL.
+
+**REPORT CARD DESIGN QUALITY**
+
+The report card must:
+- Be professionally designed for A4 printing.
+- Have balanced white space.
+- Use readable font sizes.
+- Avoid table overflow.
+- Prevent unwanted page breaks.
+- Keep the school identity consistent.
+- Use the correct school logo and actual school details supplied by the administrator.
+- Generate consistently across different students.
+- Support multiple report cards in bulk.
+- Produce high-quality PDFs.
+- Support both digital viewing and printing.
+
+Build a live report card preview before PDF generation.
+
+Allow authorised administrators to configure the report template.
+
+Create at least one polished default report card template.
+
+### 14. REPORT GENERATION AND EXPORT
+
+Generate:
+- Individual student report cards.
+- Entire class report cards.
+- Subject performance summaries.
+- Class performance summaries.
+- Examination analysis reports.
+- Grade distribution reports.
+- Student ranking reports.
+- Teacher marks submission reports.
+- Academic progress reports.
+- Annual performance reports.
+
+Support:
+- PDF.
+- Excel.
+- CSV.
+
+Allow filters by academic year, term, class, stream, subject and examination.
+
+Implement bulk PDF generation and organised file naming.
+
+### 15. ACADEMIC ANALYTICS
+
+Create an advanced analytics module.
+
+Include:
+- School-wide performance trends.
+- Class average comparisons.
+- Subject performance comparisons.
+- Grade distribution.
+- Student performance history.
+- Top-performing students.
+- Students below configured performance thresholds.
+- Subject strengths and weaknesses.
+- Term-to-term comparisons.
+- Examination performance summaries.
+
+Use Recharts for:
+- Bar charts.
+- Line charts.
+- Pie or donut charts.
+- Comparative visualisations.
+
+Charts must use real database information and support filtering.
+
+Allow export of relevant analytics reports.
+
+### 16. ACADEMIC RISK IDENTIFICATION
+
+Develop an academic early-warning feature.
+
+Identify students who:
+- Consistently perform below configured thresholds.
+- Show significant performance decline.
+- Have several missing assessment records.
+- Experience repeated low performance in particular subjects.
+
+Provide:
+- Student risk indicators.
+- Relevant academic evidence.
+- Previous and current performance comparisons.
+- Suggested intervention actions.
+- Teacher intervention notes.
+- Progress monitoring.
+
+Do not automatically label students as failures.
+
+The system must present these indicators as decision-support information for teachers and school administrators.
+
+### 17. NOTIFICATION MODULE
+
+Implement an in-app notification centre.
+
+Notify relevant users about:
+- New teacher assignments.
+- Marks submission deadlines.
+- Pending marks.
+- Marks submission.
+- Rejected marks.
+- Results approval requests.
+- Published results.
+- Important academic announcements.
+
+Support optional email and SMS integration.
+
+### 18. AUDIT LOGGING AND SECURITY
+
+Security is a major project requirement.
+
+Implement:
+- Secure password hashing.
+- Role-based access control.
+- Backend permission checks.
+- Secure session management.
+- HTTPS support.
+- Input validation.
+- SQL injection protection.
+- XSS protection.
+- CSRF protection where applicable.
+- Rate limiting.
+- Secure file uploads.
+- Login attempt monitoring.
+- Account deactivation.
+- Audit trails.
+- Database backups.
+- Controlled recovery procedures.
+
+The audit log must record:
+- User.
+- Action.
+- Affected record.
+- Previous value.
+- New value.
+- Date and time.
+- Reason where required.
+
+Ensure ordinary users cannot modify or delete audit logs.
+
+Apply privacy-by-design principles in line with Uganda's Data Protection and Privacy Act, 2019.
+
+### 19. IMPORT AND EXPORT
+
+Implement reliable Excel and CSV import/export.
+
+Allow:
+- Bulk student registration.
+- Bulk marks import.
+- Teacher information import.
+- Student records export.
+- Academic results export.
+
+Include:
+- Downloadable import templates.
+- Upload validation.
+- Preview before saving.
+- Duplicate detection.
+- Error reports.
+- Transaction-safe imports.
+
+### 20. SYSTEM SETTINGS
+
+Include settings for:
+- School identity.
+- School logo.
+- Motto.
+- Address.
+- Contact information.
+- Academic year.
+- Terms.
+- Grading scales.
+- Assessment structures.
+- Ranking rules.
+- Report card templates.
+- Notification preferences.
+- User permissions.
+- Backup schedules.
+
+Do not invent official school information. Make all school-specific details configurable.
+
+### 21. DATABASE DESIGN
+
+Create a properly normalised relational MySQL database.
+
+Include appropriate entities such as:
+
+- users
+- roles
+- permissions
+- user_roles
+- students
+- guardians
+- teachers
+- academic_years
+- terms
+- classes
+- streams
+- subjects
+- class_subjects
+- teacher_allocations
+- student_enrolments
+- examinations
+- assessment_categories
+- grading_scales
+- grading_boundaries
+- assessments
+- marks
+- result_submissions
+- result_approvals
+- report_cards
+- teacher_comments
+- attendance
+- notifications
+- audit_logs
+- system_settings
+- backups
+
+Add any additional tables needed for proper functionality.
+
+Use foreign keys, indexes, unique constraints and appropriate data types.
+
+Ensure historical academic results remain connected to the correct academic year, term, class and assessment structure.
+
+Use transactions for important operations such as marks submission, result approval and recalculation.
+
+### 22. REQUIRED USER INTERFACE PAGES
+
+Develop the following pages:
+
+1. Login page.
+2. Password recovery page.
+3. Administrator dashboard.
+4. Head Teacher dashboard.
+5. DOS dashboard.
+6. Class Teacher dashboard.
+7. Subject Teacher dashboard.
+8. Student management page.
+9. Student profile page.
+10. Teacher management page.
+11. Class and stream management page.
+12. Subject management page.
+13. Teacher allocation page.
+14. Academic year and term configuration.
+15. Examination configuration.
+16. Assessment configuration.
+17. Grading configuration.
+18. Marks entry page.
+19. Excel marks import page.
+20. Marks submission management.
+21. Results verification page.
+22. Results approval page.
+23. Published results page.
+24. Report card generation page.
+25. Live report card preview page.
+26. Academic analytics page.
+27. Student progress page.
+28. Notifications page.
+29. Audit logs page.
+30. User and role management page.
+31. System settings page.
+
+Every page must have consistent styling, useful empty states, proper loading states, error handling and functional controls.
+
+### 23. QUALITY ASSURANCE AND TESTING
+
+Do not consider the application complete until it has been tested.
+
+Implement tests for:
+
+**Authentication**
+- Valid login.
+- Invalid login.
+- Password reset.
+- Expired sessions.
+
+**Access control**
+- Teachers cannot access unassigned classes.
+- Teachers cannot approve their own marks.
+- Class teachers cannot modify subject marks without permission.
+- Administrators can manage authorised system settings.
+
+**Marks management**
+- Valid marks.
+- Marks exceeding maximum values.
+- Missing marks.
+- Duplicate marks.
+- Excel import validation.
+- Draft saving.
+- Marks submission.
+- Returned marks correction.
+
+**Calculation engine**
+- Correct totals.
+- Correct weighted averages.
+- Correct grades.
+- Correct aggregates.
+- Correct rankings.
+- Equal-mark handling.
+- Missing assessment handling.
+
+**Report generation**
+- Correct student information.
+- Correct marks.
+- Correct grades.
+- Correct calculations.
+- Correct comments.
+- Correct term and year.
+- Proper A4 layout.
+- QR verification.
+- Bulk report generation.
+
+**Security**
+- Unauthorised API access.
+- SQL injection attempts.
+- XSS attempts.
+- Invalid file uploads.
+- Session management.
+- Audit trail integrity.
+
+Provide test results and fix critical issues before declaring the application ready.
+
+### 24. DEVELOPMENT APPROACH
+
+Develop the application in a structured sequence:
+
+Phase 1: Project setup and design system.
+
+Phase 2: Database schema and backend architecture.
+
+Phase 3: Authentication and RBAC.
+
+Phase 4: Student, teacher, class and subject management.
+
+Phase 5: Academic year, examination and assessment configuration.
+
+Phase 6: Marks entry and Excel import.
+
+Phase 7: Automated grading and calculation engine.
+
+Phase 8: Results verification and approval.
+
+Phase 9: Professional report card design and PDF generation.
+
+Phase 10: Analytics and dashboards.
+
+Phase 11: Notifications, audit logs and system settings.
+
+Phase 12: Testing, security hardening and deployment.
+
+At each phase:
+- Implement working functionality.
+- Test the functionality.
+- Fix errors.
+- Keep the code modular.
+- Maintain database consistency.
+- Document completed work.
+
+### 25. REQUIRED PROJECT DELIVERABLES
+
+Produce:
+
+1. Complete React frontend.
+2. Complete Express backend.
+3. MySQL database schema.
+4. Database migration scripts.
+5. Secure authentication and RBAC.
+6. Professional dashboards.
+7. Working marks management.
+8. Automated grading engine.
+9. Results approval workflow.
+10. Professional report card template.
+11. PDF generation functionality.
+12. Academic analytics.
+13. Audit logging.
+14. Excel import/export.
+15. API documentation.
+16. Environment configuration example.
+17. Installation instructions.
+18. Database setup instructions.
+19. Testing documentation.
+20. Deployment guide.
+21. README.md.
+
+Provide realistic but clearly labelled sample data for Buyanja Grammar School to demonstrate the application.
+
+Never mix sample data with actual school records.
+
+### 26. FINAL QUALITY EXPECTATION
+
+The final application should look and function like a commercially developed education technology platform.
+
+Prioritise:
+- Exceptional UI/UX.
+- Unique visual identity.
+- Professional report card design.
+- Accurate marks calculations.
+- Strong data security.
+- Reliable academic workflows.
+- Fast and responsive interfaces.
+- Maintainable code.
+- Proper database relationships.
+- Real working functionality.
+
+Do not sacrifice functionality for appearance or appearance for functionality.
+
+Do not use fake buttons, hardcoded analytics, non-functional forms or simulated backend operations.
+
+Where school-specific information is unavailable, create configurable fields and clearly identified sample values.
+
+The ultimate goal is to deliver a secure, intelligent, modern and professionally designed academic management system that Buyanja Grammar School can realistically adopt and expand in the future.
+
+Begin by establishing the project architecture, database schema, design system and implementation plan. Then build the application module by module, ensuring that all components integrate correctly.

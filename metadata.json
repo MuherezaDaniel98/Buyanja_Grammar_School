@@ -1,0 +1,6 @@
+{
+  "name": "Buyanja Grammar School – Academic Records & Report System",
+  "description": "Secure role-based student marks management, automated grading engine, academic analytics, and official A4 report card generation system for Buyanja Grammar School, Uganda.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
